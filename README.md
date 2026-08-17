@@ -47,8 +47,12 @@ When an agent fails today, the industry response is: read logs, guess, retry. Th
 | D-07 | 保留 | 未在参考实现中使用 |
 | D-08 | adopted with no exit file | 崩溃发生在退出码写入之前 |
 | D-09 | 保留 | 未在参考实现中使用 |
+| **D-10** | **signature forgery** | 战报验签失败（Ed25519 验签不过——数据被改或签名方非本人）|
+| **D-11** | **double report** | 同一 taskId 两份不同战报（拜占庭节点重复提交）|
+| **D-12** | **byzantine collusion** | 背书成组分裂（验证者串通迹象；跨机器确证待实测）|
 
 **扩展规则**：新增代码必须附带一个判决实验（触发条件可复现 + 对照组）；保留代码在被占用前不赋予语义。分类学以语义版本演进。
+**D-10~D-12 语义来源**：dsh-megamesh E38（本机可实测部分：签名/验签/背书/分类逻辑全绿）；跨机器合谋确证标记待实测（byzantine-spec.md §6）。
 
 ## 参考实现 / Reference implementation
 
